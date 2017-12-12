@@ -34,6 +34,10 @@ namespace SignalrGameServer
             Clients.All.hello();
         }
 
+        public void test()
+        {
+
+        }
 
         public PlayerData checkCredentials(string name, string password)
         {
