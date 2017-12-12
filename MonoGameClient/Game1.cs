@@ -163,6 +163,11 @@ namespace MonoGameClient
             new FadeText(this, Vector2.Zero, "Welcome " + player.GamerTag + "you are playing as " + player.imageName);
         }
 
+        private void SpawnCoins()
+        {
+
+        }
+
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.

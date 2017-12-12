@@ -37,6 +37,14 @@ namespace CredentialSignalRGameServer
                 PlayerName= "PETER", Coins = 0},
 
             };
+        static public List<CoinData> Coins = new List<CoinData>()
+        {
+
+
+
+        };
+
+
 
     }
 }

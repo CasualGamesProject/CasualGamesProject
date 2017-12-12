@@ -67,6 +67,11 @@ namespace Sprites
             }
 
             BoundingRect = new Rectangle(Position.X, Position.Y, Image.Width, Image.Height);
+
+            //if (this.BoundingRect.Intersects())
+            //{
+
+            //}
             base.Update(gameTime);
         }
 
