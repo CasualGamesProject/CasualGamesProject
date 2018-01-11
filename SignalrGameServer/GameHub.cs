@@ -76,7 +76,9 @@ namespace SignalrGameServer
             return null;
         }
 
-        public PlayerData Leave()
+
+        //playerdata used to get info for removing from server
+        public PlayerData Leave(PlayerData pdata)
         {
             if (characters.Count >= 1)
             {
@@ -85,8 +87,13 @@ namespace SignalrGameServer
 
             if (RegisteredPlayers.Count >= 1)
             {
-               // PlayerData leavingPlayer
-
+                // PlayerData leavingPlayer
+                RegisteredPlayers.Enqueue(pdata);
+                characters.Push(pdata.imageName);
+                //RegisteredPlayers.Enqueue(); Player Name
+                //characters.Push(); player ID
+                Clients.Others.Left(pdata);
+                Players.Remove(pdata); // remove from players on server
                 Clients.Caller.CurrentPlayers(Players);
               //  Players.Remove(leavingPlayer);
 

@@ -103,6 +103,12 @@ namespace MonoGameClient
             new FadeText(this, Vector2.Zero, otherPlayerData.GamerTag + "Has joined the game");
         }
 
+        private void LeaveGame()
+        {
+
+            proxy.Invoke<PlayerData>("LeftGame");
+        }
+
 
 
         private void ServerConnection_StateChanged(StateChange State)
@@ -163,10 +169,14 @@ namespace MonoGameClient
             new FadeText(this, Vector2.Zero, "Welcome " + player.GamerTag + "you are playing as " + player.imageName);
         }
 
-        private void SpawnCoins()
+        private void GenerateCoin(CoinData coin)
         {
+            new Coin(this, coin, Content.Load<Texture2D>(coin.imageName),
+                new Point(coin.coinPos.X, coin.coinPos.Y));
 
         }
+
+
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -209,6 +219,14 @@ namespace MonoGameClient
             spriteBatch.Begin();
             spriteBatch.DrawString(font, connectionMessage, new Vector2(10, 10), Color.White);
             // TODO: Add your drawing code here
+            foreach (var item in Components)
+            {
+                if (item.GetType() == typeof(Coin))
+                {
+                    //update to draw it
+                }
+            }
+
             spriteBatch.End();
             base.Draw(gameTime);
         }
