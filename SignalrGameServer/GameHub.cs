@@ -76,6 +76,24 @@ namespace SignalrGameServer
             return null;
         }
 
+        public PlayerData Leave()
+        {
+            if (characters.Count >= 1)
+            {
+                string character = characters.Pop();
+            }
+
+            if (RegisteredPlayers.Count >= 1)
+            {
+               // PlayerData leavingPlayer
+
+                Clients.Caller.CurrentPlayers(Players);
+              //  Players.Remove(leavingPlayer);
+
+            }
+
+            return null; 
+        }
         
         public void Moved(string playerID, Position newPosition)
         {
