@@ -25,10 +25,12 @@ namespace CommonDataItems
 
     public class CoinData
     {
-
-
+        public string imageName = string.Empty;
+        public Position coinPos;
 
     }
+
+
 
 
 
